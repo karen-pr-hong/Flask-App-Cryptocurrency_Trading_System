@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- PAGE settings -->
+  <link rel="icon" href="https://templates.pingendo.com/assets/Pingendo_favicon.ico">
+  <title>Prediction - Crypto Currency Trading</title>
+  <meta name="description" content="Free Bootstrap 4 Pingendo Aquamarine template made for app and softwares.">
+  <meta name="keywords" content="Pingendo app aquamarine free template bootstrap 4">
+  <!-- CSS dependencies -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
+  <link rel="stylesheet" href="static/aquamarine.css">
+  <!-- Script: Make my navbar transparent when the document is scrolled to top -->
+  <script src="static/js/navbar-ontop.js"></script>
+  <!-- Script: Animated entrance -->
+  <script src="static/js/animate-in.js"></script>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+    <div class="container"> <a class="navbar-brand" href="/">Prediction</a> <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbar2SupportedContent" aria-controls="navbar2SupportedContent" aria-expanded="false" aria-label="Toggle navigation"> <span class="navbar-toggler-icon"></span> </button>
+      <div class="collapse navbar-collapse text-center justify-content-end" id="navbar2SupportedContent">
+        <ul class="navbar-nav">
+          <li class="nav-item mx-2"> <a class="nav-link" href="/#Blotter">Blotter</a> </li>
+          <li class="nav-item mx-2"> <a class="nav-link" href="/#PNL">Profit and Loss</a> </li>
+        </ul> <a class="btn navbar-btn text-white mx-2 btn-primary" href="/#Trade">Trade</a> </div>
+    </div>
+  </nav>
+  <!-- Cover -->
+  <!--<div class="pt-5 bg-primary">
+    <div class="container mt-5 pt-5">
+      <div class="row">
+        <div class="col-md-6 my-5 text-lg-left text-center align-self-center">
+          <h1 class="display-1">Crypto Currency Trading</h1>
+          <p class="lead"><b>Prediction</b> Present</p>
+          <div class="row mt-5">
+            
+          </div>
+        </div>
+        <div class="col-md-6"> <img class="img-fluid d-block mx-auto" src="static/assets/app/bitcoin-circle-yellow.png" width="200"> </div>
+      </div>
+    </div>
+  </div>-->
+  <!-- Trade section -->
+  <div class="py-5" id="Trade">
+    <div class="container">
+      <div class="row py-5">
+        <!--<div class="col-md-5 order-2 order-md-1"> <img class="img-fluid d-block my-3 mx-auto animate-in-right" src="static/assets/app/cryptocurrency-navigator-04.png" width="200"> </div>-->
+        <div class="align-self-center text-center">
+          <form class="p-4 bg-dark-opaque" method="post" action="/submitOrder">
+            <h1 class="mb-4 text-center">Make a Trade</h1>
+            <div class="form-group"> <label>Choose Cryptocurrency Symbol</label>
+            </div>
+            <select name="cryptoOrdered">
+                {% for c in pnl %}
+                  
+                  <option value="{{c[0]}}">{{c[2]}}</option>
+                  
+                {% endfor %}
+            </select>
+            <div class="form-group"> <label>Quantity</label>
+            
+              <div class="row">
+                <div class="col-md-12"><input type="text" name="orderQuantity"></div>
+                <div class="col-md-12"><input type="submit" value="Buy" class="like" name="orderSide">
+                  <input type="submit" value="Sell" class="like" name="orderSide"></div>
+              </div>
+              </div>
+              <p>
+                <br>
+              </p>
+        
+              <div class="col-md-12" id="PNL">
+                <div class = "container">
+                  <h2>Profit and Loss</h2>
+                  <p><br></p>
+                </div>
+                <p>
+                  <table style="width:100%">
+                    <tr>
+                      <th></th>
+                      <th>Symbol</th>
+                      <th>Cryptocurrency</th> 
+                      <th>Ask price as of {{sdate}}</th>
+                      <th>Bid price as of {{sdate}}</th>
+                      <th>total_quantity</th>
+                      <th>upl</th>
+                      <th>rpl</th>
+                      <th>vwap</th>
+                    </tr>
+                    {% for p in pnl %}
+                      <tr>
+                        <td><img src= "static\assets\app\{{p[1]}}" alt=""  height=50 width=50></img></td>
+                        <td>{{p[2]}}</td>
+                        <td>{{p[3]}}</td>
+                        <td>{{p[4]}}</td>
+                        <td>{{p[5]}}</td>
+                        <td>{{p[6]}}</td>
+                        <td>{{p[7]}}</td>
+                        <td>{{p[8]}}</td>
+                        <td>{{p[9]}}</td>
+                      </tr>
+                      
+                    {% endfor %}
+                    <tr>
+                        <th></th>
+                        <th>Cash</th> 
+                        <th>{{cash}}</th> 
+                      </tr>
+                      
+                  </table>
+                  
+                  <br>
+                </p>
+              </div>
+            </div>
+            
+            
+          </form>
+          
+        </div>
+      </div>
+      <div class="align-self-center text-center" id="Blotter">
+          <h2>Blotter</h2>
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        
+
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" href="#collapse1">Bitcoin</a>
+                            </h4>
+                      </div>
+                      <div id="collapse1" class="panel-collapse collapse">
+                        <table style="width:100%">
+                            <tr>
+                              <th>Trade Count</th> 
+                              <th>Cryptocurrency</th> 
+                              <th>Side</th>
+                              <th>Price</th>
+                              <th>Quantity</th>
+                              <th>Timestamp</th>
+                            </tr>
+                          {% for b in blt_btc %}
+                          <tr>
+                            <td>{{b[0]}}</td>
+                            <td>{{b[1]}}</td>
+                            <td>{{b[2]}}</td>
+                            <td>{{b[3]}}</td>
+                            <td>{{b[4]}}</td>
+                            <td>{{b[5]}}</td>
+                          </tr>
+
+                          {% endfor %}
+                        </table>
+                      </div>
+                    </div>
+                    
+                </div>
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        
+
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" href="#collapse1">Ethereum</a>
+                            </h4>
+                      </div>
+                      <div id="collapse1" class="panel-collapse collapse">
+                          <table style="width:100%">
+                              <tr>
+                                <th>Trade Count</th> 
+                                <th>Cryptocurrency</th> 
+                                <th>Side</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Timestamp</th>
+                              </tr>
+                            {% for b in blt_eth %}
+                            <tr>
+                              <td>{{b[0]}}</td>
+                              <td>{{b[1]}}</td>
+                              <td>{{b[2]}}</td>
+                              <td>{{b[3]}}</td>
+                              <td>{{b[4]}}</td>
+                              <td>{{b[5]}}</td>
+                            </tr>
+  
+                            {% endfor %}
+                          </table>
+                      </div>
+                    </div>
+                    
+                </div>
+                <div class="panel-group">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">
+                        
+
+                            <h4 class="panel-title">
+                              <a data-toggle="collapse" href="#collapse1">Litecoin</a>
+                            </h4>
+                      </div>
+                      <div id="collapse1" class="panel-collapse collapse">
+                          <table style="width:100%">
+                              <tr>
+                                <th>Trade Count</th> 
+                                <th>Cryptocurrency</th> 
+                                <th>Side</th>
+                                <th>Price</th>
+                                <th>Quantity</th>
+                                <th>Timestamp</th>
+                              </tr>
+                            {% for b in blt_ltc %}
+                            <tr>
+                              <td>{{b[0]}}</td>
+                              <td>{{b[1]}}</td>
+                              <td>{{b[2]}}</td>
+                              <td>{{b[3]}}</td>
+                              <td>{{b[4]}}</td>
+                              <td>{{b[5]}}</td>
+                            </tr>
+  
+                            {% endfor %}
+                          </table>
+                      </div>
+                    </div>
+                    
+                </div>
+
+        </div>
+      <hr class="mt-0"> </div>
+  </div>
+  
+
+    <!-- Footer -->
+    <div class="pt-5 bg-dark">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-9">
+              <p class="lead">Sign up to our newsletter for the latest news</p>
+              <form class="form-inline">
+                <div class="form-group"> <input type="email" class="form-control my-1 mr-1" placeholder="Your e-mail here"> </div> <button type="submit" class="btn my-1 btn-outline-primary">Subscribe</button> </form>
+            </div>
+            <div class="col-4 col-md-1 align-self-center my-3"> <a href="https://www.facebook.com" target="blank"><i class="fa fa-fw fa-facebook fa-3x text-white"></i></a> </div>
+            <div class="col-4 col-md-1 align-self-center my-3"> <a href="https://twitter.com" target="blank"><i class="fa fa-fw fa-twitter fa-3x text-white"></i></a> </div>
+            <div class="col-4 col-md-1 align-self-center my-3"> <a href="https://www.instagram.com" target="blank"><i class="fa fa-fw fa-instagram fa-3x text-white"></i></a> </div>
+          </div>
+          <div class="row">
+            <div class="col-md-12 my-3 text-center">
+              <p class="text-muted">© Copyright 2018 Pingendo - All rights reserved.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+  <!-- JavaScript dependencies -->
+  <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+  <!-- Script: Smooth scrolling between anchors in the same page -->
+  <script src="static/js/smooth-scroll.js"></script>
+  <!-- Load React. -->
+    <!-- Note: when deploying, replace "development.js" with "production.min.js". -->
+    <script src="https://unpkg.com/react@16/umd/react.development.js" crossorigin></script>
+    <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js" crossorigin></script>
+    <!--<script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>-->
+
+    <!-- Load our React component. -->
+    <script src="/static/js/like_button.js"></script>
+    <script src="/static/js/hello-example.js"></script>
+
+</body>
+
+</html>
