@@ -6,26 +6,26 @@ Please download the following software in order to run the app:
 1. python 3.8
 2. mysql (please set the password as "Pword2019!1")
 3. pip install the following list of python packages:
-    certifi==2019.9.11
-    chardet==3.0.4
-    get==2019.4.13
-    idna==2.8
-    mysql-connector-python==8.0.18
-    numpy==1.17.4
-    panda==0.3.1
-    pandas==0.25.3
-    post==2019.4.13
-    protobuf==3.11.0
-    public==2019.4.13
-    python-dateutil==2.8.1
-    pytz==2019.3
-    query-string==2019.4.13
-    request==2019.4.13
-    requests==2.22.0
-    six==1.13.0
-    urllib3==1.25.7
-    virtualenv==16.7.8
-    websockets==8.1
+    (1.) certifi
+    (2.) chardet
+    (3.) get
+    (4.) idna
+    (5.) mysql-connector-python
+    (6.) numpy
+    (7.) panda
+    (8.) pandas
+    (9.) post
+    (10.) protobuf
+    (11.) public
+    (12.) python-dateutil
+    (13.) pytz
+    (14.) query-string
+    (15.) request
+    (16.) requests
+    (17.) six
+    (18.) urllib3
+    (19.) virtualenv
+    (20.) websockets==8.1
   
 Steps to run the app (Please run the app in a Windows system)
 1. download the whole "webApplication" folder
