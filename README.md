@@ -6,10 +6,10 @@ Please download the following software in order to run the app:
 1. python 3.8
 2. mysql (please set the password as "Pword2019!1")
 3. pip install the following list of python packages:
-(1.) certifi
-(2.) chardet
-(3.) get
-(4.) idna
+    (1.) certifi
+    (2.) chardet
+    (3.) get
+    (4.) idna
     (5.) mysql-connector-python
     (6.) numpy
     (7.) panda
