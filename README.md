@@ -25,7 +25,7 @@ Please download the following software in order to run the app:
     (17.) six
     (18.) urllib3
     (19.) virtualenv
-    (20.) websockets==8.1
+    (20.) websockets
   
 Steps to run the app (Please run the app in a Windows system)
 1. download the whole "webApplication" folder
